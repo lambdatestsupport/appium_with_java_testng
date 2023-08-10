@@ -15,5 +15,6 @@ steps:
   inputs:
     connection: Extent
 
-- script: ' mvn test -D suite=android_single.xml '
+- script: ' mvn test -D suite=single.xml '
+
  
