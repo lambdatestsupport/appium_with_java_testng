@@ -10,10 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: Lambdatest.lambda-azure-pipeline-extention.configuration-task.configuration@1
+  displayName: 'LambdaTest configuration setup'
+  inputs:
+    connection: Extent
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- script: ' mvn test -D suite=android_parallel.xml '
+ 
