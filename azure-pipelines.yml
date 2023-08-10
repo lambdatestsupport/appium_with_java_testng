@@ -10,7 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Lambdatest.lambda-azure-pipeline-extention.configuration-task.configuration@1
   displayName: 'LambdaTest configuration setup'
   inputs:
     connection: Extent
