@@ -40,8 +40,8 @@ public class visualui {
         capabilities.setCapability("platformName", "Windows 11");
         capabilities.setCapability("browserVersion", "114.0");
         capabilities.setCapability("visual",true);
-        capabilities.setCapability("smartUI.project","august_10");
-        capabilities.setCapability("smartUI.build","build 2");
+        capabilities.setCapability("smartUI.project","your_project_name");
+        capabilities.setCapability("smartUI.build","your_build_name");
 
         driver = new RemoteWebDriver(new URL("http://" + username + ":" + access_key + "@hub.lambdatest.com/wd/hub"), capabilities);
 
