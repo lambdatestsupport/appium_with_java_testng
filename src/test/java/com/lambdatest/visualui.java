@@ -14,7 +14,8 @@ public class visualui {
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
         RemoteWebDriver driver = null;
 
-
+    @BeforeTest
+    public void setUp() throws Exception {
         Hashtable<String, Integer> errorColor= new Hashtable<>();
         errorColor.put("red",255);
         errorColor.put("green",0);
@@ -43,9 +44,29 @@ public class visualui {
         capabilities.setCapability("smartUI.project","your_project_name");
         capabilities.setCapability("smartUI.build","your_build_name");
 
-        driver = new RemoteWebDriver(new URL("http://" + username + ":" + access_key + "@hub.lambdatest.com/wd/hub"), capabilities);
+         try
+        {
+            driver = new AppiumDriver(new URL("http://" + username + ":" + authkey + gridURL), capabilities);
+            Thread.sleep(5000);
 
 
+        }
+        catch (MalformedURLException e)
+        {
+            System.out.println("Invalid grid URL");
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+     @Test
+    public void testSimple() throws Exception
+    {
+        try
+        {
+            Thread.sleep(3000);
 
         driver.get("https://www.lambdatest.com");
         Thread.sleep(5000);
@@ -64,38 +85,22 @@ public class visualui {
         driver.executeScript("smartui.takeScreenshot=pic3");
         Thread.sleep(1000);
 
-//
-////        driver.findElement(By.xpath("//*[@id=\"mobile-header\"]/div/div[3]/div[1]/nav/nav/a[2]/span")).click();
-////        Thread.sleep(5000);
-////
-//       driver.executeScript("smartui.takeFullPageScreenshot,{\"screenshotName\": \"pic4\", \"smartScroll\": true}");
-//        Thread.sleep(1000);
-
-
-//        driver.get("https://www.lambdatest.com/webinar/building-selenium");
-//        Thread.sleep(5000);
-//        driver.executeScript("smartui.takeScreenshot,{\"screenshotName\":\"dom-screenshot\",\"ignoreDOM\":{\"id\":[],\"class\":[\"py-30 webinar_custom bg-purple-12 py-50 lg:py-70 xxl:py-100\"]}}");
-//        Thread.sleep(1000);
-//
-//        driver.get("https://www.lambdatest.com/webinar/effective-test-automation-strategy");
-//        Thread.sleep(5000);
-//        driver.executeScript("smartui.takeScreenshot,{\"screenshotName\":\"dom-screenshot\",\"ignoreDOM\":{\"id\":[],\"class\":[\"mt-70 smtablet:mt-30\"]}}");
-////        Thread.sleep(1000);
-////        driver.executeScript("smartui.takeScreenshot,{\"screenshotName\":\"dom-screenshot\",\"ignoreDOM\":{\"id\":[],\"class\":[]}}");
-////        Thread.sleep(1000);
-//        driver.get("https://www.lambdatest.com/");
-//        Thread.sleep(5000);
-
-
-//        driver.findElement(By.xpath("//*[@id=\"header\"]/nav/div/div/div[2]/div/div/div[1]/div[3]/button")).click();
-//        driver.executeScript("smartui.takeScreenshot=pic4");
-//        Thread.sleep(1000);
-//        driver.executeScript("smartui.fetchScreenshotStatus");
-
-        driver.executeScript("lambda-status=passed");
-        driver.quit();
-
-
-
+          driver.navigate().back(); 
+            status="passed";
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            status="failed";
+        }
+    }
+    @AfterTest
+    public void tearDown() throws Exception
+    {
+        if (driver != null)
+        {
+            driver.executeScript("lambda-status=" + status);
+            driver.quit();
+        }
     }
 }
