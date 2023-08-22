@@ -31,20 +31,6 @@ public class visualui {
         sm.put("scaleToSameSize",true);//scale to same size, when baseline image and comparision image is of different size, use true
 
 
-
-
-//        String username = "deepanshu";
-//        String access_key = "OVjlD7B0yBPZAAoA9HhBGXz51CFDq2c9lSWa7G9hFKmaHTQ6Ic";
-        //        capabilities.setCapability("platformName", "ios");
-//        capabilities.setCapability("deviceName", "iPad Air 2");
-//        capabilities.setCapability("platformVersion", "14.5");
-        //capabilities.setCapability("smartUI.build","10689a4");
-//        capabilities.setCapability("smartUI.options",sm);
-        //multiple baseline images for your project
-        //        capabilities.setCapability("selenium_version", "4.0.0");
-//        capabilities.setCapability("isRealMobile", true);
-
-
         String username = "deepanshulambdatest";
         String access_key = "vvI4dCayA0O65Pzpj2mUqdOtwPIYfVlpEnX3OQtzLJDgQdAJME";
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -83,13 +69,6 @@ public class visualui {
 ////        Thread.sleep(5000);
 ////
 //       driver.executeScript("smartui.takeFullPageScreenshot,{\"screenshotName\": \"pic4\", \"smartScroll\": true}");
-//        Thread.sleep(1000);
-//
-//
-//
-//        driver.get("https://www.lambdatest.com/support/docs/");
-////        Thread.sleep(5000);
-//        driver.executeScript("smartui.takeScreenshot=pic3");
 //        Thread.sleep(1000);
 
 
