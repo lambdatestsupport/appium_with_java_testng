@@ -37,8 +37,8 @@ public class visualui2 {
 
 
 
-        String username = "deepanshulambdatest";
-        String access_key = "f8xr8eV7hpJJixO6sbVmPazAH4C8VoAUhEANPjikayLTXNlJKs";
+         String username = "your_lt_user_name";
+         String authkey = "your_lt_access_key";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "VisualUI");
         capabilities.setCapability("name", "Visual Ui Testing");
@@ -52,15 +52,10 @@ public class visualui2 {
 
         capabilities.setCapability("visual",true);
         capabilities.setCapability("smartUI.project","app automation 15 may");
-        //capabilities.setCapability("smartUI.build","10689a4");
-//        capabilities.setCapability("smartUI.options",sm);
-        //multiple baseline images for your project
+     
         capabilities.setCapability("smartUI.build","build 1");
-//        capabilities.setCapability("selenium_version", "4.6.0");
         capabilities.setCapability("isRealMobile", true);
 
-
-//        driver = new AppiumDriver(new URL("http://" + username + ":" + access_key + "@hub.lambdatest.com/wd/hub"), capabilities);
 
         driver = new AppiumDriver(new URL("http://" + username + ":" + access_key + "@mobile-hub.lambdatest.com/wd/hub"), capabilities);
 
