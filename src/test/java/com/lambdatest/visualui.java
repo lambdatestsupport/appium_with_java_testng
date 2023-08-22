@@ -31,8 +31,8 @@ public class visualui {
         sm.put("scaleToSameSize",true);//scale to same size, when baseline image and comparision image is of different size, use true
 
 
-        String username = "deepanshulambdatest";
-        String access_key = "vvI4dCayA0O65Pzpj2mUqdOtwPIYfVlpEnX3OQtzLJDgQdAJME";
+       String username = "your_lt_user_name";
+       String authkey = "your_lt_access_key";
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("build", "VisualUI"+ LocalDate.now());
         capabilities.setCapability("name", "Visual Ui Testing");
