@@ -47,46 +47,6 @@ public class appvisualui {
         capabilities.setCapability("smartUI.build","build 2");
 
 
-//        capabilities.setCapability("fixedIP", "R5CT419SNWM");
-        //lt://APP10160501221679565658309799proverbial app sample
-
-//        capabilities.setCapability("resignApp", false);
-
-//        capabilities.setCapability("network.har", true);
-//        capabilities.setCapability("app","stock");
-//        capabilities.setCapability("bundleId","com.apple.mobileslideshow");
-
-//        capabilities.setCapability("platformVersion", "12");
-//        capabilities.setCapability("platformName", "android");
-//        capabilities.setCapability("deviceName", "Pixel.*");
-//        capabilities.setCapability("networkThrottling", "offline");
-//        capabilities.setCapability("appiumVersion", "1.22.0");
-//        capabilities.setCapability("autoGrantPermissions", true);
-//        capabilities.setCapability("appProfiling", true);
-//        capabilities.setCapability("resignApp",true);
-
-//
-//        capabilities.setCapability("app","lt://APP1016046941678714630991380");
-//        String[] customOtherApps = {"lt://APP1016046941678886558544881"};
-//        capabilities.setCapability("otherApps",customOtherApps);
-
-//        lt://APP1016046941678886558544881" tripadvsor sameple notes app
-
-//        caps.setCapability("browserName", "Chrome");
-//        caps.setCapability("browserVersion", "106");
-//        caps.setCapability("version", "latest");
-//        capabilities.setCapability("build", "push file adb");
-//        capabilities.setCapability("region", "AP");
-//        caps.setCapability("name", "attempt_2 with safari 6");
-
-        //capabilities.setCapability("bundleId", "com.android.chrome");
-        //capabilities.setCapability("app", "stock");
-        //capabilities.setCapability("appPackage", "com.android.chrome");
-        //capabilities.setCapability("appActivity","com.google.android.apps.chrome.Main");
-//        capabilities.setCapability("network",true);
-//        capabilities.setCapability("visual",true);
-//        capabilities.setCapability("timezone", "UTC+03:00");
-        //capabilities.setCapability("region","eu");
 
         try
         {
