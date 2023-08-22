@@ -23,10 +23,9 @@ import java.security.MessageDigest;
 import java.util.Set;
 
 public class appvisualui {
-    String username = "deepanshulambdatest";
-    String authkey = "f8xr8eV7hpJJixO6sbVmPazAH4C8VoAUhEANPjikayLTXNlJKs";
+    String username = "your_lt_user_name";
+    String authkey = "your_lt_access_key";
     public static AppiumDriver driver = null;
-    //    public String gridURL = "@localhost:9688/wd/hub";
     public String gridURL =  "@mobile-hub.lambdatest.com/wd/hub";
     public String status = "passed";
     @BeforeTest
@@ -53,7 +52,6 @@ public class appvisualui {
             driver = new AppiumDriver(new URL("http://" + username + ":" + authkey + gridURL), capabilities);
             Thread.sleep(5000);
 
-//            driver= http://" + username + ":" + authkey + "@localhost:9688/wd/hub";
 
         }
         catch (MalformedURLException e)
@@ -108,7 +106,6 @@ public class appvisualui {
             driver.executeScript("smartui.takeScreenshot=pic8");
             Thread.sleep(1000);
 
-//            driver.closeApp();
             driver.terminateApp("proverbial");
 
             driver.navigate().back();
