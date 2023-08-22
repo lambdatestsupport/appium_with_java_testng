@@ -43,17 +43,13 @@ public class visualui2 {
         capabilities.setCapability("build", "VisualUI");
         capabilities.setCapability("name", "Visual Ui Testing");
 
-
-
         capabilities.setCapability("platformVersion", "12");
         capabilities.setCapability("platformName", "android");
-        capabilities.setCapability("deviceName", "Pixel.*");
-        capabilities.setCapability("app","lt://APP10160501221679565658309799");
-
+        capabilities.setCapability("deviceName", "Pixel 6");
         capabilities.setCapability("visual",true);
-        capabilities.setCapability("smartUI.project","app automation 15 may");
+        capabilities.setCapability("smartUI.project","your_project_name");
      
-        capabilities.setCapability("smartUI.build","build 1");
+        capabilities.setCapability("smartUI.build","your_build_name");
         capabilities.setCapability("isRealMobile", true);
 
 
@@ -62,39 +58,21 @@ public class visualui2 {
 
         Thread.sleep(1000);
 
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.elementToBeClickable(MobileBy.id("color"))).click();
+        driver.get("https://www.lambdatest.com");
+        Thread.sleep(5000);
         driver.executeScript("smartui.takeScreenshot=pic1");
         Thread.sleep(1000);
 
-        wait.until(ExpectedConditions.elementToBeClickable(MobileBy.id("geoLocation"))).click();
-        driver.executeScript("smartui.takeScreenshot=pic2");
+        driver.get("https://www.lambdatest.com/support/docs/");
         Thread.sleep(5000);
-        driver.navigate().back();
+
+        driver.executeScript("smartui.takeScreenshot=pic2");
         Thread.sleep(1000);
 
-        wait.until(ExpectedConditions.elementToBeClickable(MobileBy.id("Text"))).click();
+        driver.get("https://www.lambdatest.com/pricing");
+        Thread.sleep(5000);
+
         driver.executeScript("smartui.takeScreenshot=pic3");
-        Thread.sleep(1000);
-
-        wait.until(ExpectedConditions.elementToBeClickable(MobileBy.id("notification"))).click();
-        driver.executeScript("smartui.takeScreenshot=pic4");
-        Thread.sleep(1000);
-
-        wait.until(ExpectedConditions.elementToBeClickable(MobileBy.id("toast"))).click();
-        driver.executeScript("smartui.takeScreenshot=pic5");
-        Thread.sleep(1000);
-
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("Browser"))).click();
-        driver.executeScript("smartui.takeScreenshot=pic6");
-        Thread.sleep(10000);
-
-        wait.until(ExpectedConditions.elementToBeClickable(MobileBy.id("url"))).sendKeys("https://www.lambdatest.com/");;
-        driver.executeScript("smartui.takeScreenshot=pic7");
-        Thread.sleep(1000);
-
-        wait.until(ExpectedConditions.elementToBeClickable(MobileBy.id("find"))).click();
-        driver.executeScript("smartui.takeScreenshot=pic8");
         Thread.sleep(1000);
 
         driver.executeScript("lambda-status=passed");
