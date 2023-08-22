@@ -16,7 +16,8 @@ import java.util.Hashtable;
 public class visualui2 {
     public static void main(String[] args) throws MalformedURLException, InterruptedException {
         AppiumDriver driver = null;
-
+@BeforeTest
+    public void setUp() throws Exception {
 
         Hashtable<String, Integer> errorColor= new Hashtable<>();
         errorColor.put("red",255);
@@ -34,9 +35,6 @@ public class visualui2 {
         sm.put("scaleToSameSize",true);//scale to same size, when baseline image and comparision image is of different size, use true
 
 
-
-
-
          String username = "your_lt_user_name";
          String authkey = "your_lt_access_key";
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -52,12 +50,31 @@ public class visualui2 {
         capabilities.setCapability("smartUI.build","your_build_name");
         capabilities.setCapability("isRealMobile", true);
 
+  try
+        {
+            driver = new AppiumDriver(new URL("http://" + username + ":" + authkey + gridURL), capabilities);
+            Thread.sleep(5000);
 
-        driver = new AppiumDriver(new URL("http://" + username + ":" + access_key + "@mobile-hub.lambdatest.com/wd/hub"), capabilities);
 
+        }
+        catch (MalformedURLException e)
+        {
+            System.out.println("Invalid grid URL");
+        } catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
 
-        Thread.sleep(1000);
+    }
 
+     @Test
+    public void testSimple() throws Exception
+    {
+        try
+        {
+            Thread.sleep(3000);
+
+       
         driver.get("https://www.lambdatest.com");
         Thread.sleep(5000);
         driver.executeScript("smartui.takeScreenshot=pic1");
@@ -74,12 +91,24 @@ public class visualui2 {
 
         driver.executeScript("smartui.takeScreenshot=pic3");
         Thread.sleep(1000);
+        driver.navigate().back();
 
-        driver.executeScript("lambda-status=passed");
-        Thread.sleep(1000);
-        driver.quit();
-
-
-
+            
+            status="passed";
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            status="failed";
+        }
+    }
+    @AfterTest
+    public void tearDown() throws Exception
+    {
+        if (driver != null)
+        {
+            driver.executeScript("lambda-status=" + status);
+            driver.quit();
+        }
     }
 }
